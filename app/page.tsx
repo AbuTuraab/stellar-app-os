@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
 import { Text } from "@/components/atoms/Text";
 import { Badge } from "@/components/atoms/Badge";
@@ -48,8 +49,8 @@ export default function Home() {
           <Button variant="default" size="lg" className="w-full">
             Connect Wallet
           </Button>
-          <Button variant="outline" size="lg" className="w-full">
-            Learn More
+          <Button asChild variant="outline" size="lg" className="w-full">
+            <Link href="/blog">Read our Blog</Link>
           </Button>
         </CardContent>
       </Card>
