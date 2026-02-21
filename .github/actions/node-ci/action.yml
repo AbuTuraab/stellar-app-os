@@ -1,0 +1,30 @@
+name: "Node CI"
+description: "Setup Node + pnpm + lint + build"
+
+runs:
+  using: "composite"
+  steps:
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Install pnpm globally (works reliably in composite actions)
+      shell: bash
+      run: |
+        npm install -g pnpm
+        echo "$(npm bin -g)" >> $GITHUB_PATH
+        pnpm --version
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install
+
+    - name: Lint
+      shell: bash
+      run: pnpm lint
+
+    - name: Build
+      shell: bash
+      run: pnpm build
