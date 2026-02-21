@@ -11,11 +11,11 @@ runs:
         node-version: 20
         cache: "pnpm"
 
-    - name: Install pnpm globally
+    - name: Install pnpm
       shell: bash
       run: |
-       npm install -g pnpm
-       echo "$(npm bin -g)" >> $GITHUB_PATH
+        corepack enable
+        pnpm -v
 
     - name: Install dependencies
       shell: bash
