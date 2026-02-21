@@ -9,13 +9,13 @@ runs:
       uses: actions/setup-node@v4
       with:
         node-version: 20
-        cache: "pnpm"
 
-    - name: Install pnpm
+    - name: Install pnpm globally (works reliably in composite actions)
       shell: bash
       run: |
-        corepack enable
-        pnpm -v
+        npm install -g pnpm
+        echo "$(npm bin -g)" >> $GITHUB_PATH
+        pnpm --version
 
     - name: Install dependencies
       shell: bash
