@@ -11,11 +11,12 @@ runs:
         node-version: 20
         cache: "pnpm"
 
-    - name: Install pnpm
+    - name: Enable pnpm via corepack & expose PATH
       shell: bash
       run: |
         corepack enable
-        pnpm -v
+        echo "$(corepack npm bin -g)" >> $GITHUB_PATH
+        echo "PNPM version: $(pnpm -v)"
 
     - name: Install dependencies
       shell: bash
