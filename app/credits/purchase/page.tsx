@@ -12,8 +12,6 @@ import {
   getCompletedSteps,
 } from "@/lib/utils/purchaseFlow";
 import type { CreditSelectionState } from "@/lib/types/carbon";
-import { Button } from "@/components/atoms/Button";
-import { Text } from "@/components/atoms/Text";
 
 export default function PurchasePage() {
   const router = useRouter();
