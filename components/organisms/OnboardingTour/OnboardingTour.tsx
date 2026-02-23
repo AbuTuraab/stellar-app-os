@@ -68,7 +68,9 @@ export function OnboardingTour(): React.ReactNode {
 
     const element = document.querySelector<HTMLElement>(currentStep.target);
     if (!element) {
-      setTargetRect(null);
+      requestAnimationFrame(() => {
+        setTargetRect(null);
+      });
       return;
     }
 

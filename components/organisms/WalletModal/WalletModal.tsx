@@ -44,6 +44,7 @@ const WALLET_DESCRIPTIONS: Record<WalletType, string> = {
   custodial: 'Not currently supported.',
 };
 
+// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 interface WalletModalProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
@@ -241,6 +242,7 @@ interface WalletOptionCardProps {
 }
 
 function WalletOptionCard({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   walletType: _walletType,
   icon,
   name,

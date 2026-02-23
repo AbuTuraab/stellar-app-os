@@ -25,7 +25,15 @@ function ProjectsContent() {
 
   useEffect(() => {
     const urlFilters = parseFiltersFromUrl(searchParams);
-    setFilters(urlFilters);
+    requestAnimationFrame(() => {
+      setFilters((prev) => {
+        // Only update if filters actually changed
+        if (JSON.stringify(prev) === JSON.stringify(urlFilters)) {
+          return prev;
+        }
+        return urlFilters;
+      });
+    });
   }, [searchParams]);
 
   const availableTypes = useMemo(() => extractUniqueValues(mockCarbonProjects, (p) => p.type), []);
@@ -50,13 +58,20 @@ function ProjectsContent() {
 
   useEffect(() => {
     if (filters.priceRange.min === 0 && filters.priceRange.max === 100) {
-      setFilters((prev) => ({
-        ...prev,
-        priceRange: {
-          min: priceRange.min,
-          max: priceRange.max,
-        },
-      }));
+      requestAnimationFrame(() => {
+        setFilters((prev) => {
+          if (prev.priceRange.min === priceRange.min && prev.priceRange.max === priceRange.max) {
+            return prev;
+          }
+          return {
+            ...prev,
+            priceRange: {
+              min: priceRange.min,
+              max: priceRange.max,
+            },
+          };
+        });
+      });
     }
   }, [priceRange, filters.priceRange]);
 

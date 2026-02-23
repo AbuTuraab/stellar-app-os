@@ -25,6 +25,7 @@ const typeConfig = {
 };
 
 export function ProjectCard({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   id: _id,
   title,
   location,

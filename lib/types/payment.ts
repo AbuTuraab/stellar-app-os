@@ -28,6 +28,7 @@ export interface TransactionPreview {
   recipientAddress: string;
 }
 
+// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 export interface PaymentMintingProps {
   selection: CreditSelectionState;
   wallet: WalletConnection | null;

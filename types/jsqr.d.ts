@@ -9,6 +9,7 @@ declare module 'jsqr' {
     };
   }
 
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   export default function jsQR(
     data: Uint8ClampedArray,
     width: number,

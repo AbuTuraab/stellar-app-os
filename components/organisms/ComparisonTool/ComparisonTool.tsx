@@ -10,10 +10,10 @@ import { generateComparisonPDF } from '@/lib/utils/pdf';
 
 const MAX_COMPARISON = 3;
 
+// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
 export interface ComparisonToolProps {
   projects: CarbonProject[];
-
-  onAddToCart?: (_projectId: string) => void;
+  onAddToCart?: (projectId: string) => void;
 }
 
 export function ComparisonTool({ projects, onAddToCart }: ComparisonToolProps) {

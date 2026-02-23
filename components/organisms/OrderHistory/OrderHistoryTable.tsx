@@ -13,14 +13,15 @@ import { Badge } from '@/components/atoms/Badge';
 import { Button } from '@/components/atoms/Button';
 import { Select } from '@/components/atoms/Select';
 import { Text } from '@/components/atoms/Text';
-import { Order, OrderType, OrderStatus } from '@/lib/types/order';
+import type { Order, OrderType, OrderStatus } from '@/lib/types/order';
 import { fetchOrders } from '@/lib/api/mock/orders';
 import { ExternalLink, Download, FileQuestion } from 'lucide-react';
 
 export function OrderHistoryTable() {
   const [orders, setOrders] = React.useState<Order[]>([]);
   const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState<string | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_error, setError] = React.useState<string | null>(null);
 
   const [page, setPage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(1);
