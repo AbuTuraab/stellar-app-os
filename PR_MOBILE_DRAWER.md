@@ -4,7 +4,7 @@
 
 Implements a fully accessible mobile navigation drawer with wallet integration for mobile users. Includes smooth slide-in animation, keyboard navigation, and WCAG 2.1 AA compliance.
 
-**Closes:** #47
+**Closes:** #65
 ## What Was Implemented
 
 ### Components Created
@@ -94,7 +94,7 @@ npm run dev
 - [ ] Body scroll prevented when open
 
 ### Browser Testing
-- [ ] Chrome/Edge
+- [ ] Chrome/EdgeA
 - [ ] Firefox
 - [ ] Safari
 - [ ] Mobile browsers
