@@ -40,5 +40,5 @@ export interface CreditSelectionState {
 
 export interface CreditSelectionProps {
   projects: CarbonProject[];
-  onSelectionChange?: () => void;
+  onSelectionChange?: (newSelection: CreditSelectionState) => void;
 }
