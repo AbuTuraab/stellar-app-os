@@ -68,8 +68,7 @@ export async function checkOnlineStatus(): Promise<boolean> {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function subscribeToNetworkStatus(callback: (_: boolean) => void): () => void {
+export function subscribeToNetworkStatus(callback: (online: boolean) => void): () => void {
   const handleOnline = () => callback(true);
   const handleOffline = () => callback(false);
 

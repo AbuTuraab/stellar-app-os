@@ -11,6 +11,7 @@ import {
   CardDescription,
   CardContent,
 } from '@/components/molecules/Card';
+import { OnboardingTour } from '@/components/organisms/OnboardingTour/OnboardingTour';
 
 export default function Home() {
   return (

@@ -30,6 +30,8 @@ export function trackEvent(_event: string, _properties?: Record<string, unknown>
 
     // Log to console for development
     if (process.env.NODE_ENV === 'development') {
+      // eslint-disable-next-line no-console
+      console.debug('[Analytics]', event, properties);
     }
 
     // Example: Send to analytics service

@@ -18,6 +18,9 @@ export interface SearchBarProps {
   /** Callback triggered when the debounced value changes */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   onSearch?: (_debouncedValue: string) => void;
+  onChange?: (value: string) => void;
+  /** Callback triggered when the debounced value changes */
+  onSearch?: (debouncedValue: string) => void;
   /** Delay for debouncing in milliseconds (initialValue 300ms) */
   debounceDelay?: number;
   /** Placeholder text for the input */
