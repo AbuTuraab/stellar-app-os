@@ -12,7 +12,7 @@ import { Button } from '@/components/atoms/Button';
 import { Text } from '@/components/atoms/Text';
 import { Badge } from '@/components/atoms/Badge';
 import { Counter } from '@/components/atoms/Counter';
-import { OnboardingTour } from '@/components/organisms/OnboardingTour/OnboardingTour';
+import { OnboardingTour } from '@/components/organisms/OnboardingTour';
 import {
   Card,
   CardHeader,
@@ -22,9 +22,14 @@ import {
 } from '@/components/molecules/Card';
 
 import { useToast } from "@/components/ui/toast/hooks";
+import { TransactionHistoryModal } from "../components/ui/TransactionHistoryModal";
+import { useState } from "react";
 
 
 export default function Home() {
+
+  const [showTx, setShowTx] = useState(false);
+
 
  const { addToast } = useToast();
 
@@ -48,6 +53,20 @@ export default function Home() {
       Show Toast
     </Button>
     </CardContent>
+
+      <CardContent className="flex flex-col gap-3">
+  <Button
+        onClick={() => setShowTx(true)}
+        variant="default" size="lg" className="w-full"
+      >
+        Transactions
+      </Button>
+      </CardContent>
+
+      <TransactionHistoryModal
+        open={showTx}
+        onClose={() => setShowTx(false)}
+      />
 
       {/* Platform Stats */}
       <div
