@@ -1,7 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import { Header } from "@/components/organisms/Header/Header";
 import { Footer } from "@/components/organisms/Footer/Footer";
 import "./globals.css";
+import { WalletProviderWrapper } from "@/components/providers/WalletProviderWrapper";
+import type { Metadata, Viewport } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { Footer } from '@/components/organisms/Footer/Footer';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -55,8 +61,11 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
-        <Footer />
+        <WalletProviderWrapper>
+          <Header />
+          {children}
+          <Footer />
+        </WalletProviderWrapper>
       </body>
     </html>
   );
