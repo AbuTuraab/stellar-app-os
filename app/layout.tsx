@@ -15,6 +15,7 @@ import { WalletProviderWrapper } from "@/components/providers/WalletProviderWrap
 import './globals.css';
 >>>>>>> main
 
+
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],
