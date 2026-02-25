@@ -15,9 +15,9 @@ interface FooterSection {
 const aboutSection: FooterSection = {
   title: 'About',
   links: [
-    { label: "About FarmCredit", href: "/about" },
-    { label: "Blog", href: "/blog" },
-    { label: "Documentation", href: "#docs" },
+    { label: 'About FarmCredit', href: '/about' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Documentation', href: '#docs' },
   ],
 };
 
@@ -34,8 +34,8 @@ const legalSection: FooterSection = {
   title: 'Legal',
   links: [
     { label: 'Terms of Service', href: '#terms' },
-    { label: 'Privacy Policy', href: '#privacy' },
-    { label: 'Cookie Policy', href: '#cookies' },
+    { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'Cookie Policy', href: '/privacy#cookies-and-similar-technologies' },
   ],
 };
 

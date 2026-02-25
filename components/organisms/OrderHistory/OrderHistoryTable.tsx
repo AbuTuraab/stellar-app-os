@@ -16,13 +16,10 @@ import { Text } from '@/components/atoms/Text';
 import type { Order, OrderType, OrderStatus } from '@/lib/types/order';
 import { fetchOrders } from '@/lib/api/mock/orders';
 import { ExternalLink, Download, FileQuestion } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 export function OrderHistoryTable() {
   const [orders, setOrders] = React.useState<Order[]>([]);
   const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState<string | null>(null);
-
   const [page, setPage] = React.useState(1);
   const [totalPages, setTotalPages] = React.useState(1);
   const [filter, setFilter] = React.useState<OrderType | 'all'>('all');
@@ -37,7 +34,6 @@ export function OrderHistoryTable() {
       setOrders(result.data);
       setTotalPages(result.totalPages);
     } catch (err) {
-      setError('Failed to fetch order history.');
       console.error(err);
     } finally {
       setLoading(false);

@@ -26,7 +26,7 @@ interface LeafletLayer {
   bindPopup?: (content: string) => LeafletLayer;
 }
 
-interface LeafletTileLayer extends LeafletLayer {}
+type LeafletTileLayer = LeafletLayer;
 
 interface LeafletMarker extends LeafletLayer {
   bindPopup: (content: string) => LeafletMarker;
@@ -232,7 +232,7 @@ export function ProjectLocationMap({
       satelliteLayerRef.current = null;
       activeLayerRef.current = null;
     };
-  }, [lat, lng, locationLabel, projectName]);
+  }, [lat, lng, locationLabel, projectName, viewMode]);
 
   useEffect(() => {
     const map = mapInstanceRef.current;

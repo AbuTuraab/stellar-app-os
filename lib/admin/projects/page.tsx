@@ -8,11 +8,11 @@ export default function AdminProjectsPage(): ReactNode {
       <AdminProjectTable
         projects={mockAdminProjectDetails}
         onProjectUpdate={async (payload) => {
-          console.log('Project update:', payload);
+          console.info('Project update:', payload);
           // TODO: Implement API call to update projects
         }}
         onNavigateDetail={(projectId) => {
-          console.log('Navigate to detail view:', projectId);
+          console.info('Navigate to detail view:', projectId);
           // TODO: Implement navigation to detail page
         }}
       />
