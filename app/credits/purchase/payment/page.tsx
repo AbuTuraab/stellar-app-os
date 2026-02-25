@@ -1,68 +1,63 @@
-"use client";
+'use client';
 
-import { Suspense, useState, useEffect, useMemo } from "react";
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import { PaymentMintingStep } from "@/components/organisms/PaymentMintingStep/PaymentMintingStep";
-import { ProgressStepper } from "@/components/molecules/ProgressStepper/ProgressStepper";
-import { Text } from "@/components/atoms/Text";
-import { useWalletContext } from "@/contexts/WalletContext";
+import { Suspense, useState, useEffect, useMemo, JSX } from 'react';
+import { useRouter, useSearchParams, usePathname } from 'next/navigation';
+import { PaymentMintingStep } from '@/components/organisms/PaymentMintingStep';
+import { ProgressStepper } from '@/components/molecules/ProgressStepper/ProgressStepper';
+import { Text } from '@/components/atoms/Text';
+import { useWalletContext } from '@/contexts/WalletContext';
 import {
   buildPurchaseFlowSteps,
   getCurrentStepFromPath,
   getCompletedSteps,
-} from "@/lib/utils/purchaseFlow";
-import type { CreditSelectionState } from "@/lib/types/carbon";
+} from '@/lib/utils/purchaseFlow';
+import { useAppTranslation } from '@/hooks/useTranslation';
+import type { CreditSelectionState } from '@/lib/types/carbon';
 
-function PaymentContent() {
+function PaymentContent(): JSX.Element {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const { wallet } = useWalletContext();
+  const { t } = useAppTranslation();
   const [selection, setSelection] = useState<CreditSelectionState | null>(null);
   const [selectionParam, setSelectionParam] = useState<string | null>(null);
 
   useEffect(() => {
-    const param = searchParams.get("selection");
+    const param = searchParams.get('selection');
     if (param) {
       setSelectionParam(param);
       try {
         const parsed = JSON.parse(decodeURIComponent(param)) as CreditSelectionState;
         setSelection(parsed);
       } catch (err) {
-        console.error("Failed to parse selection:", err);
-        router.push("/credits/purchase");
+        console.error('Failed to parse selection:', err);
+        router.push('/credits/purchase');
       }
     } else {
-      router.push("/credits/purchase");
+      router.push('/credits/purchase');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
-  const handleComplete = (transactionHash: string) => {
-    console.log("Transaction completed:", transactionHash);
-    // Navigate to confirmation page with transaction details
+  const handleComplete = (transactionHash: string): void => {
     if (selection && wallet) {
       const param = encodeURIComponent(JSON.stringify(selection));
-      const networkParam = wallet.network;
       router.push(
-        `/credits/purchase/confirmation?selection=${param}&hash=${transactionHash}&network=${networkParam}`
+        `/credits/purchase/confirmation?selection=${param}&hash=${transactionHash}&network=${wallet.network}`,
       );
     }
   };
 
-  const handleError = (error: string) => {
-    console.error("Transaction error:", error);
+  const handleError = (error: string): void => {
+    console.error('Transaction error:', error);
   };
 
   const currentStepId = getCurrentStepFromPath(pathname);
-  const completedSteps = getCompletedSteps(
-    currentStepId,
-    !!selection,
-    !!wallet?.isConnected
-  );
+  const completedSteps = getCompletedSteps(currentStepId, !!selection, !!wallet?.isConnected);
   const steps = useMemo(
     () => buildPurchaseFlowSteps(currentStepId, completedSteps, selectionParam),
-    [currentStepId, completedSteps, selectionParam]
+    [currentStepId, completedSteps, selectionParam],
   );
 
   if (!selection || !wallet?.isConnected) {
@@ -73,7 +68,7 @@ function PaymentContent() {
         </div>
         <div className="text-center">
           <Text variant="h3" as="h2" className="mb-2">
-            Loading...
+            {t('purchase.loading')}
           </Text>
         </div>
       </div>
@@ -95,14 +90,15 @@ function PaymentContent() {
   );
 }
 
-export default function PaymentPage() {
+export default function PaymentPage(): JSX.Element {
+  const { t } = useAppTranslation();
   return (
     <Suspense
       fallback={
         <div className="container mx-auto px-4 py-8 max-w-4xl">
           <div className="text-center">
             <Text variant="h3" as="h2" className="mb-2">
-              Loading...
+              {t('purchase.loading')}
             </Text>
           </div>
         </div>
