@@ -44,7 +44,7 @@ function PaymentContent(): JSX.Element {
     if (selection && wallet) {
       const param = encodeURIComponent(JSON.stringify(selection));
       router.push(
-        `/credits/purchase/confirmation?selection=${param}&hash=${transactionHash}&network=${wallet.network}`,
+        `/credits/purchase/confirmation?selection=${param}&hash=${transactionHash}&network=${wallet.network}`
       );
     }
   };
@@ -57,7 +57,7 @@ function PaymentContent(): JSX.Element {
   const completedSteps = getCompletedSteps(currentStepId, !!selection, !!wallet?.isConnected);
   const steps = useMemo(
     () => buildPurchaseFlowSteps(currentStepId, completedSteps, selectionParam),
-    [currentStepId, completedSteps, selectionParam],
+    [currentStepId, completedSteps, selectionParam]
   );
 
   if (!selection || !wallet?.isConnected) {

@@ -51,7 +51,7 @@ function ConfirmationContent(): JSX.Element {
   const completedSteps = getCompletedSteps(currentStepId, !!selection, true);
   const steps = useMemo(
     () => buildPurchaseFlowSteps(currentStepId, completedSteps, selectionParam),
-    [currentStepId, completedSteps, selectionParam],
+    [currentStepId, completedSteps, selectionParam]
   );
 
   if (!selection || !transactionHash || !network) {

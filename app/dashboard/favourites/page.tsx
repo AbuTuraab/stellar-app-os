@@ -14,7 +14,6 @@ export default function FavoritesPage() {
 
   const favoritedProjects = mockCarbonProjects.filter((project) => favorites.includes(project.id));
 
-
   if (favoritedProjects.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-24 gap-4 text-muted-foreground">
