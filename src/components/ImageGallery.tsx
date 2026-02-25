@@ -1,6 +1,7 @@
+"use client";
 import React, { useState, useCallback } from 'react';
-import { GalleryImage } from '../types/gallery';
-import { Lightbox } from './Lightbox'; // Direct import (no barrel)
+import { type GalleryImage } from '../types/gallery';
+import { Lightbox } from './Lightbox'; 
 
 interface ImageGalleryProps {
   images: GalleryImage[];
@@ -18,21 +19,26 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ images }) => {
   }, [images.length]);
 
   return (
-    <section className="w-full p-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <section className="w-full flex justify-center p-4">
+      {/* 'justify-items-center' centers the boxes inside the grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center w-full max-w-6xl">
         {images.map((img, index) => (
           <button
             key={img.id}
             onClick={() => setSelectedIndex(index)}
-            className="group relative overflow-hidden rounded-lg focus:ring-4 focus:ring-blue-500 outline-none"
-            aria-label={`View ${img.caption}`}
+            className="group relative flex items-center justify-center overflow-hidden rounded-xl bg-gray-100 shadow-md hover:shadow-xl transition-all duration-300 w-full max-w-85.5"
           >
             <img
-              src={img.thumbnail}
+              src={img.url}
               alt={img.alt}
-              loading="lazy"
-              className="w-full aspect-square object-cover transition-transform group-hover:scale-105"
+              className="w-full aspect-4/3 object-cover transition-transform duration-500 group-hover:scale-110"
             />
+            {/* Hover overlay for a 'fine' look */}
+            <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+               <span className="text-white font-semibold border-2 border-white px-4 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                 View Image
+               </span>
+            </div>
           </button>
         ))}
       </div>

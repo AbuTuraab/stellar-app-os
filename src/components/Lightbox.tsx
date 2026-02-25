@@ -1,5 +1,6 @@
+'use client';
 import React, { useEffect } from 'react';
-import { GalleryImage } from '../types/gallery';
+import { type GalleryImage } from '../types/gallery';
 
 interface LightboxProps {
   image: GalleryImage;
@@ -20,40 +21,40 @@ export const Lightbox: React.FC<LightboxProps> = ({ image, onClose, onNext, onPr
   }, [onClose, onNext, onPrev]);
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
-      role="dialog"
-      aria-modal="true"
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 backdrop-blur-sm">
       <button
         onClick={onClose}
-        className="absolute top-5 right-5 text-white text-2xl p-2 focus:ring-2 focus:ring-white"
-        aria-label="Close lightbox"
+        className="absolute top-8 right-8 text-white/70 hover:text-white text-4xl p-2 transition-colors"
+        aria-label="Close"
       >
         &times;
       </button>
 
       <button
         onClick={onPrev}
-        className="absolute left-5 text-white text-4xl p-4 focus:ring-2 focus:ring-white"
-        aria-label="Previous image"
+        className="absolute left-8 text-white/50 hover:text-white text-5xl p-4 transition-colors hidden md:block"
+        aria-label="Previous"
       >
         &#8249;
       </button>
 
-      <div className="flex flex-col items-center max-w-5xl w-full">
+      <div className="flex flex-col items-center max-w-5xl w-full animate-in fade-in zoom-in duration-300">
         <img
-          src={image.src}
+          src={image.url} // FIXED: Changed from src to url
           alt={image.alt}
-          className="max-h-[80vh] w-auto object-contain rounded-sm"
+          className="max-h-[80vh] w-auto object-contain rounded shadow-2xl"
         />
-        <p className="mt-4 text-white text-center text-lg">{image.caption}</p>
+        {(image.caption || image.alt) && (
+          <p className="mt-6 text-white text-center text-xl font-light tracking-wide">
+            {image.caption || image.alt}
+          </p>
+        )}
       </div>
 
       <button
         onClick={onNext}
-        className="absolute right-5 text-white text-4xl p-4 focus:ring-2 focus:ring-white"
-        aria-label="Next image"
+        className="absolute right-8 text-white/50 hover:text-white text-5xl p-4 transition-colors hidden md:block"
+        aria-label="Next"
       >
         &#8250;
       </button>

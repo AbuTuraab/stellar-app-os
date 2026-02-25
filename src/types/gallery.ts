@@ -1,7 +1,8 @@
 export interface GalleryImage {
   id: string;
-  src: string;
-  thumbnail: string;
+  url: string;   // We will use 'url' everywhere
   alt: string;
-  caption: string;
+  width: number;
+  height: number;
+  caption?: string;
 }
