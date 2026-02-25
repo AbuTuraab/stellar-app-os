@@ -9,6 +9,9 @@ export function useMarketPrice(creditType: string | undefined) {
       if (!creditType) return undefined;
       const result = await fetchMarketPrice(creditType);
       return result;
+    queryFn: (): Promise<MarketPriceData | undefined> => {
+      if (!creditType) return Promise.resolve(undefined);
+      return fetchMarketPrice(creditType);
     },
     enabled: !!creditType,
     staleTime: 60000, // 1 minute

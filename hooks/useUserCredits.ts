@@ -9,6 +9,7 @@ export function useUserCredits(publicKey: string | null) {
       if (!publicKey) return [];
       const result = await fetchUserCredits(publicKey);
       return result;
+      return await fetchUserCredits(publicKey);
     },
     enabled: !!publicKey,
     staleTime: 30000, // 30 seconds

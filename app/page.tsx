@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 import { Button } from '@/components/atoms/Button';
 import { Text } from '@/components/atoms/Text';
 import { Badge } from '@/components/atoms/Badge';
@@ -17,6 +18,9 @@ import { OnboardingTour } from '@/components/organisms/OnboardingTour';
 import { useToast } from '@/components/ui/toast/hooks';
 import { TransactionHistoryModal } from '../components/ui/TransactionHistoryModal';
 import { useState } from 'react';
+import { OnboardingTour } from '@/components/organisms/OnboardingTour/OnboardingTour';
+import { useToast } from '@/components/ui/toast/hooks';
+import { TransactionHistoryModal } from '@/components/ui/TransactionHistoryModal';
 
 export default function Home() {
   const [showTx, setShowTx] = useState(false);

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { ResultHighlight } from '@/components/molecules/ResultHighlight';
 import { Pagination } from '@/components/molecules/Pagination';
@@ -22,7 +23,7 @@ const contentTypeIcons: Record<ContentType, string> = {
   blog: '📝',
 };
 
-export default function SearchResultsPage(): React.ReactNode {
+function SearchResultsPageContent(): React.ReactNode {
   const searchParams = useSearchParams();
   const query = searchParams.get('q') || '';
 
@@ -229,5 +230,13 @@ export default function SearchResultsPage(): React.ReactNode {
         )}
       </div>
     </main>
+  );
+}
+
+export default function SearchResultsPage(): React.ReactNode {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchResultsPageContent />
+    </Suspense>
   );
 }

@@ -8,8 +8,10 @@ interface WalletState {
 }
 
 export async function fetchUserCredits(_publicKey: string): Promise<Credit[]> {
+// eslint-disable-next-line no-unused-vars
+export function fetchUserCredits(_publicKey: string): Promise<Credit[]> {
   // Mock implementation - replace with actual Stellar SDK calls later
-  return [
+  return Promise.resolve([
     {
       id: 'CARBON_SOLAR_001',
       type: 'Solar Carbon Credit',
@@ -36,18 +38,20 @@ export async function fetchUserCredits(_publicKey: string): Promise<Credit[]> {
         verificationStandard: 'Clean Development Mechanism',
       },
     },
-  ];
+  ]);
 }
 
 export async function fetchMarketPrice(_creditType: string): Promise<MarketPriceData> {
+// eslint-disable-next-line no-unused-vars
+export function fetchMarketPrice(_creditType: string): Promise<MarketPriceData> {
   // Mock implementation
-  return {
+  return Promise.resolve({
     current: 10.5,
     high24h: 11.2,
     low24h: 10.1,
     volume24h: 1500,
     lastUpdated: new Date(),
-  };
+  });
 }
 
 export async function createListing(
@@ -73,10 +77,16 @@ export async function createListing(
 export async function validateCreditOwnership(
   _publicKey: string,
   _creditId: string,
+export function validateCreditOwnership(
+  // eslint-disable-next-line no-unused-vars
+  _publicKey: string,
+  // eslint-disable-next-line no-unused-vars
+  _creditId: string,
+  // eslint-disable-next-line no-unused-vars
   _quantity: number
 ): Promise<boolean> {
   // Mock validation - always return true for demo
-  return true;
+  return Promise.resolve(true);
 }
 
 export async function checkExistingListings(
@@ -85,4 +95,8 @@ export async function checkExistingListings(
 ): Promise<boolean> {
   // Mock check - always return false for demo
   return false;
+// eslint-disable-next-line no-unused-vars
+export function checkExistingListings(_publicKey: string, _creditId: string): Promise<boolean> {
+  // Mock check - always return false for demo
+  return Promise.resolve(false);
 }

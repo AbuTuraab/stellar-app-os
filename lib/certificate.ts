@@ -49,7 +49,7 @@ export function getDisplayName(data: Pick<CertificateData, 'userName' | 'walletA
   return data.userName?.trim() || data.walletAddress;
 }
 
-export async function generateCertificatePdf({
+export function generateCertificatePdf({
   qrDataUrl,
   data,
 }: GenerateCertificateOptions): Promise<void> {

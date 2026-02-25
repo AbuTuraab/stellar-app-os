@@ -12,6 +12,7 @@ export default function AdminUsersPage(): ReactNode {
         onUserAction={async (userId, action, reason) => {
           // TODO: Replace with real API call
           console.info('User action:', { userId, action, reason });
+          return Promise.resolve();
         }}
       />
     </div>

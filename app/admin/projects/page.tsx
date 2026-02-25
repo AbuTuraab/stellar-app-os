@@ -1,4 +1,5 @@
 'use client';
+
 import type { ReactNode } from 'react';
 import { Text } from '@/components/atoms/Text';
 import { AdminProjectTable } from '@/components/organisms/AdminProjectTable/AdminProjectTable';
@@ -20,6 +21,7 @@ export default function AdminProjectsPage(): ReactNode {
       <AdminProjectTable
         projects={mockAdminProjectDetails}
         onProjectUpdate={(payload) => {
+        onProjectUpdate={async (payload) => {
           console.info('Project update:', payload);
           // TODO: Implement API call to update projects
           return Promise.resolve();

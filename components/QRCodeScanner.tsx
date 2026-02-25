@@ -4,6 +4,7 @@ import jsQR from 'jsqr';
 type ScanResult = { type: 'url'; url: string } | { type: 'address'; address: string };
 
 interface QRCodeScannerProps {
+  // eslint-disable-next-line no-unused-vars
   onResult?: (result: ScanResult) => void;
   manualLabel?: string;
   autoStart?: boolean;
@@ -60,6 +61,7 @@ const QRCodeScanner: React.FC<QRCodeScannerProps> = ({
         // small play guard
 
         videoRef.current.play();
+        void videoRef.current.play();
       }
       setScanning(true);
       tick();
