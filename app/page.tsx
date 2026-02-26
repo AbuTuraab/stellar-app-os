@@ -1,11 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { JSX, useState } from 'react';
+import { type JSX, useState } from 'react';
 import { Button } from '@/components/atoms/Button';
 import { Text } from '@/components/atoms/Text';
 import { Badge } from '@/components/atoms/Badge';
 import { Counter } from '@/components/atoms/Counter';
+import { ImageGallery } from '@/src/components/ImageGallery';
+import { type GalleryImage } from '@/src/types/gallery';
 import {
   Card,
   CardHeader,
@@ -30,6 +32,7 @@ export default function Home(): JSX.Element {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-8 p-8">
+      
       <div data-tour-id="hero-section" className="flex flex-col items-center gap-4 text-center">
         <Badge variant="default">{t('home.badge')}</Badge>
         <Text variant="h1">{t('home.title')}</Text>

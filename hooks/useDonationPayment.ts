@@ -82,7 +82,7 @@ export function useDonationPayment() {
         transactionId: result.transactionHash,
       }));
       showToast('Payment successful!', 'success');
-      router.push(`/donate/success?txHash=${result.transactionHash}&method=stellar`);
+      router.push(`/donate/confirmation?txHash=${result.transactionHash}&method=stellar&amount=${donationState.amount}`);
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Payment failed';
       setPaymentState((prev) => ({
@@ -109,7 +109,7 @@ export function useDonationPayment() {
         transactionId: paymentIntentId,
       }));
       showToast('Payment successful!', 'success');
-      router.push(`/donate/success?txId=${paymentIntentId}&method=card`);
+      router.push(`/donate/confirmation?txId=${paymentIntentId}&method=card&amount=${donationState.amount}`);
     },
     [router]
   );

@@ -15,7 +15,7 @@ import { BlogGrid } from '@/components/organisms/BlogGrid';
 import { PaginationControl } from '@/components/molecules/PaginationControl';
 import { useAppTranslation } from '@/hooks/useTranslation';
 import type { BlogPageTemplateProps } from '@/lib/types/blog';
-import { JSX } from 'react';
+import { type JSX } from 'react';
 
 export function BlogPageTemplate({
   featuredPost,

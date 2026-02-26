@@ -16,7 +16,7 @@ const steps = [
   { id: 'amount', label: 'AMOUNT', path: '/donate', status: 'completed' as const },
   { id: 'info', label: 'YOUR INFO', path: '/donate/info', status: 'completed' as const },
   { id: 'payment', label: 'PAYMENT', path: '/donate/payment', status: 'current' as const },
-  { id: 'success', label: 'SUCCESS', path: '/donate/success', status: 'upcoming' as const },
+  { id: 'success', label: 'SUCCESS', path: '/donate/confirmation', status: 'upcoming' as const },
 ];
 
 export function PaymentStep() {
