@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback, JSX } from 'react';
+import { useState, useRef, useEffect, useCallback, type JSX } from 'react';
 import { Globe, ChevronDown, Check } from 'lucide-react';
 import { useAppTranslation } from '@/hooks/useTranslation';
 import { LANGUAGE_LABELS } from '@/lib/i18n/config';

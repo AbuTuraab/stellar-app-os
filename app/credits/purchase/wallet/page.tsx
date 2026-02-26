@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useState, useEffect, useMemo, JSX } from 'react';
+import { Suspense, useState, useEffect, useMemo, type JSX } from 'react';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { WalletConnectionStep } from '@/components/organisms/WalletConnectionStep/WalletConnectionStep';
 import { ProgressStepper } from '@/components/molecules/ProgressStepper/ProgressStepper';

@@ -2,9 +2,9 @@
  * Mock blog data for development and API fallback
  *
  * Used when:
- *  - CMS_API_URL is not set in the environment (.env.local)
- *  - The CMS API is unreachable (network error)
- *  - NODE_ENV === 'development' and BLOG_USE_MOCK_DATA === 'true'
+ * - CMS_API_URL is not set in the environment (.env.local)
+ * - The CMS API is unreachable (network error)
+ * - NODE_ENV === 'development' and BLOG_USE_MOCK_DATA === 'true'
  *
  * Data shape must satisfy BlogListResponse / BlogListResponseSchema.
  */
@@ -240,6 +240,7 @@ export const MOCK_BLOG_DATA: BlogListResponse = {
       id: 'post-7',
       slug: 'poultry-farming-loan-checklist',
       title: 'Poultry Farming Loan Checklist: What to Prepare',
+      excerpt: "Before you walk into a lender's office for a poultry loan, make sure you have these 10 documents and metrics ready.",
       excerpt:
         "Before you walk into a lender's office for a poultry loan, make sure you have these 10 documents and metrics ready.",
       content: MARKDOWN_BY_CATEGORY['Livestock'],
