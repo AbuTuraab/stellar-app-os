@@ -18,6 +18,8 @@
     "@radix-ui/react-primitive": "^2.1.4",
     "@stellar/freighter-api": "^1.7.0",
     "@stellar/stellar-sdk": "^11.2.2",
+    "@stripe/react-stripe-js": "^5.6.0",
+    "@stripe/stripe-js": "^8.8.0",
     "@tanstack/react-query": "^5.90.21",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -36,6 +38,7 @@
     "react-i18next": "^16.5.4",
     "react-icons": "^5.5.0",
     "stellar-sdk": "^13.3.0",
+    "stripe": "^20.3.1",
     "tailwind-merge": "^3.5.0",
     "zod": "^4.3.6"
   },
