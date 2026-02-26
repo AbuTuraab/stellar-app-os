@@ -43,6 +43,14 @@ const resourcesSection: FooterSection = {
 };
 
 
+const legalSection: FooterSection = {
+  title: 'Legal',
+  links: [
+    { label: 'Terms of Service', href: '#terms' },
+    { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'Cookie Policy', href: '/privacy#cookies-and-similar-technologies' },
+  ],
+};
 function buildFooterSections(t: TFunction): FooterSection[] {
   return [
     {
@@ -64,13 +72,14 @@ function buildFooterSections(t: TFunction): FooterSection[] {
     {
       title: t('footer.legal'),
       links: [
-        { label: t('footer.terms'), href: '#terms' },
+        { label: t('footer.terms'), href: '/terms-of-service' },
         { label: t('footer.privacy'), href: '#privacy' },
         { label: t('footer.cookies'), href: '#cookies' },
       ],
     },
   ];
 }
+
 
 function buildSocialLinks(t: TFunction): SocialLink[] {
   return [
