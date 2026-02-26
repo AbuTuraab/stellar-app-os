@@ -46,7 +46,7 @@ function WalletContent(): JSX.Element {
   const completedSteps = getCompletedSteps(currentStepId, !!selectionParam, !!wallet?.isConnected);
   const steps = useMemo(
     () => buildPurchaseFlowSteps(currentStepId, completedSteps, selectionParam),
-    [currentStepId, completedSteps, selectionParam],
+    [currentStepId, completedSteps, selectionParam]
   );
 
   return (

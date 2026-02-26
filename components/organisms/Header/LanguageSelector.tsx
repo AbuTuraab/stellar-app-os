@@ -48,16 +48,13 @@ export function LanguageSelector({ variant = 'desktop' }: LanguageSelectorProps)
       setIsOpen(false);
       buttonRef.current?.focus();
     },
-    [changeLanguage],
+    [changeLanguage]
   );
 
   const isMobile = variant === 'mobile';
 
   return (
-    <div
-      ref={containerRef}
-      className={isMobile ? 'relative w-full' : 'relative'}
-    >
+    <div ref={containerRef} className={isMobile ? 'relative w-full' : 'relative'}>
       <button
         ref={buttonRef}
         type="button"

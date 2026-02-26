@@ -15,7 +15,7 @@ export default function ComparePage(): JSX.Element {
     (projectId: string): void => {
       router.push(`/credits/purchase?projectId=${projectId}`);
     },
-    [router],
+    [router]
   );
 
   return (

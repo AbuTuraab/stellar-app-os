@@ -38,7 +38,7 @@ export default function PurchasePage(): JSX.Element {
   const completedSteps = getCompletedSteps(currentStepId, !!selection, false);
   const steps = useMemo(
     () => buildPurchaseFlowSteps(currentStepId, completedSteps, null),
-    [currentStepId, completedSteps],
+    [currentStepId, completedSteps]
   );
 
   return (
