@@ -54,7 +54,7 @@ function buildFooterSections(t: TFunction): FooterSection[] {
     {
       title: t('footer.legal'),
       links: [
-        { label: t('footer.terms'), href: '#terms' },
+        { label: t('footer.terms'), href: '/terms-of-service' },
         { label: t('footer.privacy'), href: '#privacy' },
         { label: t('footer.cookies'), href: '#cookies' },
       ],

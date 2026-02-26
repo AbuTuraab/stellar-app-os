@@ -17,7 +17,12 @@ interface MobileDrawerProps {
 
 interface NavLink {
   href: string;
-  labelKey: keyof { 'nav.home': string; 'nav.blog': string; 'nav.purchaseCredits': string; 'nav.dashboard': string };
+  labelKey: keyof {
+    'nav.home': string;
+    'nav.blog': string;
+    'nav.purchaseCredits': string;
+    'nav.dashboard': string;
+  };
   icon: React.ComponentType<{ className?: string }>;
 }
 

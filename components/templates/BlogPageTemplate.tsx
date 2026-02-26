@@ -35,9 +35,7 @@ export function BlogPageTemplate({
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground mb-4">
           {t('blog.featuredBlogTitle')}
         </h1>
-        <p className="max-w-2xl mx-auto text-lg text-muted-foreground">
-          {t('blog.pageSubtitle')}
-        </p>
+        <p className="max-w-2xl mx-auto text-lg text-muted-foreground">{t('blog.pageSubtitle')}</p>
       </header>
 
       {/* Featured post hero — only renders when a featured post exists */}
