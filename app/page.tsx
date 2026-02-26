@@ -15,6 +15,11 @@ import {
   CardDescription,
   CardContent,
 } from '@/components/molecules/Card';
+import { OnboardingTour } from '@/components/organisms/OnboardingTour';
+
+import { useToast } from '@/components/ui/toast/hooks';
+import { TransactionHistoryModal } from '../components/ui/TransactionHistoryModal';
+import { useState } from 'react';
 import { OnboardingTour } from '@/components/organisms/OnboardingTour/OnboardingTour';
 import { useToast } from '@/components/ui/toast/hooks';
 import { TransactionHistoryModal } from '@/components/ui/TransactionHistoryModal';

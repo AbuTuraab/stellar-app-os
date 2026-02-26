@@ -23,6 +23,16 @@ interface SocialLink {
   ariaLabel: string;
 }
 
+<<<<<<< feat/issue-42-privacy-policy
+const legalSection: FooterSection = {
+  title: 'Legal',
+  links: [
+    { label: 'Terms of Service', href: '#terms' },
+    { label: 'Privacy Policy', href: '/privacy' },
+    { label: 'Cookie Policy', href: '/privacy#cookies-and-similar-technologies' },
+  ],
+};
+=======
 function buildFooterSections(t: TFunction): FooterSection[] {
   return [
     {
@@ -51,6 +61,7 @@ function buildFooterSections(t: TFunction): FooterSection[] {
     },
   ];
 }
+>>>>>>> main
 
 function buildSocialLinks(t: TFunction): SocialLink[] {
   return [
