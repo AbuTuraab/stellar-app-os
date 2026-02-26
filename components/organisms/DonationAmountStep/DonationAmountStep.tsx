@@ -9,27 +9,16 @@ import { Badge } from '@/components/atoms/Badge';
 import { ProgressStepper } from '@/components/molecules/ProgressStepper/ProgressStepper';
 import { useDonationContext } from '@/contexts/DonationContext';
 import { Trees, Mountain, Leaf } from 'lucide-react';
+import {
+  MINIMUM_DONATION,
+  TREES_PER_DOLLAR,
+  HECTARES_PER_DOLLAR,
+  CO2_PER_DOLLAR,
+  formatCurrency,
+  formatNumber,
+} from '@/lib/constants/donation';
 
 const QUICK_AMOUNTS = [10, 25, 50, 100];
-const MINIMUM_DONATION = 5;
-const TREES_PER_DOLLAR = 1; // 1 tree per dollar
-const HECTARES_PER_DOLLAR = 0.018; // 0.018 hectares per dollar
-const CO2_PER_DOLLAR = 0.048; // 0.048 tons CO2 per dollar
-
-// Currency formatter for USD
-const formatCurrency = (amount: number): string => {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 2,
-  }).format(amount);
-};
-
-// Format large numbers with commas
-const formatNumber = (num: number): string => {
-  return new Intl.NumberFormat('en-US').format(num);
-};
 
 export function DonationAmountStep() {
   const router = useRouter();
